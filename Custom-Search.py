@@ -31,6 +31,7 @@ URL preview:
 """)
 urls = pd.read_csv(url_file, header=0)
 st.table(urls.iloc[0:10])
+st.error('Select a URL file!')
 see_example_url_file = st.checkbox(
     "See example URL file", False, help="Use example file to see what format your input file has to be"
 )
@@ -49,6 +50,7 @@ Words preview:
 """)
 words = pd.read_csv(word_file, header=0)
 st.table(words.iloc[0:10]) 
+st.error('Select a Word file!')
 see_example_words_file = st.checkbox(
     "See example Words file", False, help="Use example file to see what format your input file has to be"
 )

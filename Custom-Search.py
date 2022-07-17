@@ -52,7 +52,7 @@ st.markdown("[See sample Words file](https://github.com/jamesboswell84/Custom-Se
 st.write("""
 # 3.
 """)
-content_area = st.text_input('Specify the unique div class of your content area (then press enter):')
+content_area = st.text_input('(OPTIONAL) Specify the unique div class of your content area (then press enter):')
 
 if st.button('🐸 Start Search'):
     urls = url_df

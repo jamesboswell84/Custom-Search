@@ -15,27 +15,31 @@ import io
 output = pd.DataFrame()
 
 ### The following section loads the urls and words into python as lists
-#url_file = "urls_to_search.csv"
+
 st.write("""
 # Custom Search
 Screaming Frog's custom search function, but you can add all of your searches via an input file instead of adding them manually and individually.
 """)
+
+#url_file = "urls_to_search.csv"
 url_file = st.file_uploader("Choose a URL file")
 st.write("""
 Example URL file here.
 """)
-urls = pd.read_csv(url_file, header=0)
-urls = urls['URL'].to_list()
+
 #word_file = "words_to_search.csv"
 word_file = st.file_uploader("Choose a Word file")
 st.write("""
 Example Word file here.
 """)
-words = pd.read_csv(word_file, header=0)
-words = words['WORD'].to_list()
+
 
 if st.button('Start Search'):
-
+    urls = pd.read_csv(url_file, header=0)
+    urls = urls['URL'].to_list()
+    words = pd.read_csv(word_file, header=0)
+    words = words['WORD'].to_list()
+    
     ### The following creates placeholder lists to save our loop data to
     url_column_data = []
     text_column_data = []

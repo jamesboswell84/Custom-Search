@@ -33,7 +33,7 @@ if uploaded_url_file:
     st.markdown("### URL data preview")
     st.dataframe(url_df.head())
 
-st.markdown("[Download sample URLs file](https://github.com/jamesboswell84/Custom-Search/blob/main/urls_to_search.csv)")
+st.markdown("[See sample URLs file](https://github.com/jamesboswell84/Custom-Search/blob/main/urls_to_search.csv)")
 
     
 st.write("""
@@ -46,7 +46,7 @@ if uploaded_word_file:
     st.markdown("### Word data preview")
     st.dataframe(words_df.head())
 
-st.markdown("[Download sample Words file](https://github.com/jamesboswell84/Custom-Search/blob/main/words_to_search.csv)")
+st.markdown("[See sample Words file](https://github.com/jamesboswell84/Custom-Search/blob/main/words_to_search.csv)")
     
     
 st.write("""

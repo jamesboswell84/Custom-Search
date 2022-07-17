@@ -64,7 +64,7 @@ if st.button('Start Search'):
 
     ### This is the variable for div class to search
     #content_area = input("Enter regex rule for your content area:")
-    content_area = st.text_input('Specify regex to find div classes within your content areas:')
+    #content_area = st.text_input('Specify regex to find div classes within your content areas:')
     
     ### The following loop opens each url 1 by 1 and saves the text in "div class="layout__region layout__region--content container" to text_column_data
     for url in urls:

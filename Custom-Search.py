@@ -27,7 +27,7 @@ see_example_url_file = st.checkbox(
     "See example URL file", False, help="Use example file to see what format your input file has to be"
 )
 if see_example_url_file:
-    uploaded_url_file = "urls_to_search"
+    uploaded_url_file = "urls_to_search.csv"
     st.dataframe(uploaded_url_file.head())
 
 #word_file = "words_to_search.csv"
@@ -36,7 +36,7 @@ see_example_words_file = st.checkbox(
     "See example Words file", False, help="Use example file to see what format your input file has to be"
 )
 if see_example_words_file:
-    uploaded_words_file = "urls_to_search"
+    uploaded_words_file = "words_to_search.csv"
     st.dataframe(uploaded_words_file.head())
 
 content_area = st.text_input('#3. Specify regex to find div classes within your content areas:')

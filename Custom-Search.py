@@ -48,7 +48,7 @@ for url in urls:
         f = io.BytesIO(fd.read()) 
 
         soup = BeautifulSoup(f, 'html.parser')
-        content_div_html = soup.find("div", {"class": re.compile(f'"{content_area}")})
+        content_div_html = soup.find("div", {"class": re.compile(f"{content_area}")})
         content_div_text = content_div_html.get_text().lower()
         url_column_data.append(url)
         text_column_data.append(content_div_text)

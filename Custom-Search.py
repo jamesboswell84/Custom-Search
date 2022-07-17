@@ -48,15 +48,15 @@ if st.button('Start Search'):
     for url in urls:
         try:   
             fd = urlopen(url)
-           f = io.BytesIO(fd.read()) 
+            f = io.BytesIO(fd.read()) 
 
-           soup = BeautifulSoup(f, 'html.parser')
-           content_div_html = soup.find("div", {"class": re.compile(f"{content_area}")})
-          content_div_text = content_div_html.get_text().lower()
-          url_column_data.append(url)
-          text_column_data.append(content_div_text)
-       except:
-           pass
+            soup = BeautifulSoup(f, 'html.parser')
+            content_div_html = soup.find("div", {"class": re.compile(f"{content_area}")})
+            content_div_text = content_div_html.get_text().lower()
+            url_column_data.append(url)
+            text_column_data.append(content_div_text)
+        except:
+            pass
 
     ### The following adds the url data to our main output dataframe
     output["url"] = url_column_data

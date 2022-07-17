@@ -32,8 +32,8 @@ if uploaded_url_file:
     st.dataframe(url_df.head())
 
 sample_url_file = "urls_to_search.csv"
-sample_url_file = pd.read_csv(sample_url_file, header=0)
-st.download_button('Download sample URL file', sample_url_file)
+sample_url_data = pd.read_csv(sample_url_file, header=0)
+st.download_button('Download sample URL file', sample_url_data)
     
 st.write("""
 # 2.
@@ -46,8 +46,8 @@ if uploaded_word_file:
     st.dataframe(words_df.head())
 
 sample_words_file = "words_to_search.csv"
-sample_words_file = pd.read_csv(sample_words_file, header=0)
-st.download_button('Download sample Words file', sample_words_file)
+sample_words_data = pd.read_csv(sample_words_file, header=0)
+st.download_button('Download sample Words file', sample_words_data)
     
     
 st.write("""

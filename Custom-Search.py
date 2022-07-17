@@ -31,8 +31,8 @@ preview_url_data = st.checkbox(
 
 try:
     if preview_url_data:
-    urls = pd.read_csv(url_file, header=0)
-    st.dataframe(urls.head())
+        urls = pd.read_csv(url_file, header=0)
+        st.dataframe(urls.head())
 except error:
     st.error('Invalid file selected')
 
@@ -57,8 +57,8 @@ preview_word_data = st.checkbox(
 )
 try:
     if preview_word_data:
-    words = pd.read_csv(word_file, header=0)
-    st.dataframe(words.head())
+        words = pd.read_csv(word_file, header=0)
+        st.dataframe(words.head())
 except error:
     st.error('Invalid file selected')
 

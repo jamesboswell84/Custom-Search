@@ -50,7 +50,7 @@ if see_example_words_file:
 st.write("""
 # 3.
 """)
-content_area = st.text_input('Specify regex to find div classes within your content areas:')
+content_area = st.text_input('Specify the unique div class of your content area:')
 
 if st.button('Start Search'):
     urls = pd.read_csv(url_file, header=0)
@@ -66,7 +66,7 @@ if st.button('Start Search'):
     #content_area = input("Enter regex rule for your content area:")
     #content_area = st.text_input('Specify regex to find div classes within your content areas:')
     
-    ### The following loop opens each url 1 by 1 and saves the text in "div class="layout__region layout__region--content container" to text_column_data
+    ### The following loop opens each url 1 by 1 and scrapes the text in the specified div classes to text_column_data
     with st.spinner("Loading URLs..."):
         for url in urls:
             try:   

@@ -55,9 +55,9 @@ st.write("""
 content_area = st.text_input('Specify the unique div class of your content area:')
 
 if st.button('🐸 Start Search'):
-    urls = pd.read_csv(url_file, header=0)
+    urls = url_df
     urls = urls['URL'].to_list()
-    words = pd.read_csv(word_file, header=0)
+    words = words_df
     words = words['WORD'].to_list()
     
     ### The following creates placeholder lists to save our loop data to

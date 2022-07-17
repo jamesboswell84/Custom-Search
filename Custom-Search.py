@@ -43,11 +43,8 @@ if see_example_url_file:
     uploaded_url_file = "urls_to_search.csv"
     uploaded_url_file = pd.read_csv(uploaded_url_file, header=0)
     st.dataframe(uploaded_url_file.head())
-st.write("""
-URL preview:
-""")
 
-
+    
 st.write("""
 # 2.
 """)

@@ -33,7 +33,7 @@ try:
     if preview_url_data:
         urls = pd.read_csv(url_file, header=0)
         st.dataframe(urls.head())
-except error:
+except NameError:
     st.error('Invalid file selected')
 
 see_example_url_file = st.checkbox(
@@ -59,7 +59,7 @@ try:
     if preview_word_data:
         words = pd.read_csv(word_file, header=0)
         st.dataframe(words.head())
-except error:
+except NameError:
     st.error('Invalid file selected')
 
 see_example_words_file = st.checkbox(

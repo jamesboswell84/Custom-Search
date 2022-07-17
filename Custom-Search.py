@@ -21,8 +21,11 @@ st.write("""
 Screaming Frog's custom search function, but you can add all of your searches via an input file instead of adding them manually and individually.
 """)
 
+st.write("""
+# 1.
+""")
 #url_file = "urls_to_search.csv"
-url_file = st.file_uploader("#1. Choose your URL CSV file:")
+url_file = st.file_uploader("Choose your URL CSV file:")
 see_example_url_file = st.checkbox(
     "See example URL file", False, help="Use example file to see what format your input file has to be"
 )
@@ -30,8 +33,11 @@ if see_example_url_file:
     uploaded_url_file = "urls_to_search.csv"
     st.dataframe(uploaded_url_file.head())
 
+st.write("""
+# 2.
+""")
 #word_file = "words_to_search.csv"
-word_file = st.file_uploader("#2. Choose your Words CSV file:")
+word_file = st.file_uploader("Choose your Words CSV file:")
 see_example_words_file = st.checkbox(
     "See example Words file", False, help="Use example file to see what format your input file has to be"
 )
@@ -39,7 +45,10 @@ if see_example_words_file:
     uploaded_words_file = "words_to_search.csv"
     st.dataframe(uploaded_words_file.head())
 
-content_area = st.text_input('#3. Specify regex to find div classes within your content areas:')
+st.write("""
+# 3.
+""")
+content_area = st.text_input('Specify regex to find div classes within your content areas:')
 
 if st.button('Start Search'):
     urls = pd.read_csv(url_file, header=0)

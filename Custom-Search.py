@@ -1,5 +1,6 @@
 import pandas as pd
 import sys
+import re
 from bs4 import BeautifulSoup
 import streamlit as st
 
@@ -36,6 +37,10 @@ words = words['WORD'].to_list()
 ### The following creates placeholder lists to save our loop data to
 url_column_data = []
 text_column_data = []
+
+### This is the variable for div class to search
+content_area = input("Enter regex rule for your content area:")
+
 ### The following loop opens each url 1 by 1 and saves the text in "div class="layout__region layout__region--content container" to text_column_data
 for url in urls:
     try:   
@@ -43,7 +48,7 @@ for url in urls:
         f = io.BytesIO(fd.read()) 
 
         soup = BeautifulSoup(f, 'html.parser')
-        content_div_html = soup.find("div", {"class":"layout__region layout__region--content container"})
+        content_div_html = soup.find("div", {"class": re.compile(f'"{content_area}")})
         content_div_text = content_div_html.get_text().lower()
         url_column_data.append(url)
         text_column_data.append(content_div_text)

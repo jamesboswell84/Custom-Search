@@ -24,9 +24,18 @@ Screaming Frog's custom search function, but you can add all of your searches vi
 st.write("""
 # 1.
 """)
-#url_file = "urls_to_search.csv"
 url_file = st.file_uploader("Choose your URL CSV file:")
-urls = pd.read_csv(url_file, header=0)
+preview_url_data = st.checkbox(
+    "URL preview", False, help="Preview your selected URL file"
+)
+
+try:
+    if preview_url_data:
+    urls = pd.read_csv(url_file, header=0)
+    st.dataframe(urls.head())
+except error:
+    st.error('Invalid file selected')
+
 see_example_url_file = st.checkbox(
     "See example URL file", False, help="Use example file to see what format your input file has to be"
 )
@@ -37,19 +46,22 @@ if see_example_url_file:
 st.write("""
 URL preview:
 """)
-st.dataframe(urls.head())
+
 
 st.write("""
 # 2.
 """)
-#word_file = "words_to_search.csv"
 word_file = st.file_uploader("Choose your Words CSV file:")
-st.write("""
-Words preview:
-""")
-words = pd.read_csv(word_file, header=0)
-st.table(words.iloc[0:10]) 
-st.error('Select a Word file!')
+preview_word_data = st.checkbox(
+    "Word preview", False, help="Preview your selected Word file"
+)
+try:
+    if preview_word_data:
+    words = pd.read_csv(word_file, header=0)
+    st.dataframe(words.head())
+except error:
+    st.error('Invalid file selected')
+
 see_example_words_file = st.checkbox(
     "See example Words file", False, help="Use example file to see what format your input file has to be"
 )

@@ -33,9 +33,9 @@ if see_example_url_file:
     url_file = "urls_to_search.csv"
 
 if uploaded_url_file:
-    df = pd.read_csv(url_file, header=0)
+    url_df = pd.read_csv(uploaded_url_file, header=0)
     st.markdown("### URL data preview")
-    st.dataframe(df.head())
+    st.dataframe(url_df.head())
     
 st.write("""
 # 2.
@@ -49,10 +49,9 @@ if see_example_words_file:
     words_file = "words_to_search.csv"
 
 if uploaded_word_file:
-    df = pd.read_csv(words_file, header=0)
-    st.markdown("### URL data preview")
-    st.dataframe(df.head())
-    st.dataframe(uploaded_words_file.head())
+    words_df = pd.read_csv(uploaded_word_file, header=0)
+    st.markdown("### Word data preview")
+    st.dataframe(words_df.head())
 
 st.write("""
 # 3.

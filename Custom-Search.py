@@ -31,7 +31,8 @@ if uploaded_url_file:
     st.markdown("### URL data preview")
     st.dataframe(url_df.head())
 
-st.markdown("[Download sample URL file](urls_to_search.csv)")
+sample_url_file = "urls_to_search.csv"
+st.download_button('Download sample URL file', sample_url_file)
     
 st.write("""
 # 2.
@@ -43,7 +44,8 @@ if uploaded_word_file:
     st.markdown("### Word data preview")
     st.dataframe(words_df.head())
 
-st.markdown("[Download sample Word file](words_to_search.csv)")    
+sample_words_file = "words_to_search.csv"
+st.download_button('Download sample Words file', sample_words_file)
     
     
 st.write("""

@@ -99,15 +99,17 @@ if st.button('Start Search'):
             output[word] = search_column_data
 
 #print(output)
-    st.write("""
-    # Data preview:
-    """)
-    st.table(output.iloc[0:10])        
-    ### The following prints the output and saves it to csv file
-    #if st.button('Export CSV'):
-
-    #output.to_csv("custom search output.csv")
-    st.download_button('Download file', output)
+        st.write("""
+        # Data preview:
+        """)
+        st.table(output.iloc[0:10])        
+        ### The following prints the output and saves it to csv file
+        #if st.button('Export CSV'):
+        def convert_df(output):
+        # IMPORTANT: Cache the conversion to prevent computation on every rerun
+            return output.to_csv().encode('utf-8')
+        #output.to_csv("custom search output.csv")
+        st.download_button('Download file', output, file_name="custom search output.csv",mime='text/csv')
 
 
 

@@ -26,33 +26,26 @@ st.write("""
 """)
 uploaded_url_file = st.file_uploader("Choose your URL CSV file:")
 
-see_example_url_file = st.checkbox(
-    "See example URL file", False, help="Use example file to see what format your input file has to be"
-)
-if see_example_url_file:
-    url_file = "urls_to_search.csv"
-
 if uploaded_url_file:
     url_df = pd.read_csv(uploaded_url_file, header=0)
     st.markdown("### URL data preview")
     st.dataframe(url_df.head())
+
+st.markdown([Download sample URL file](upload://urls_to_search.csv)))
     
 st.write("""
 # 2.
 """)
 uploaded_word_file = st.file_uploader("Choose your Words CSV file:")
 
-see_example_words_file = st.checkbox(
-    "See example Words file", False, help="Use example file to see what format your input file has to be"
-)
-if see_example_words_file:
-    words_file = "words_to_search.csv"
-
 if uploaded_word_file:
     words_df = pd.read_csv(uploaded_word_file, header=0)
     st.markdown("### Word data preview")
     st.dataframe(words_df.head())
 
+st.markdown([Download sample Word file](upload://words_to_search.csv)))    
+    
+    
 st.write("""
 # 3.
 """)

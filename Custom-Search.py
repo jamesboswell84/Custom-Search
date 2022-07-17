@@ -84,15 +84,15 @@ if st.button('Start Search'):
         output[word] = search_column_data
 
 #print(output)
-st.write("""
-# Data preview:
-""")
-st.table(data.iloc[0:10])        
-### The following prints the output and saves it to csv file
-#if st.button('Export CSV'):
+    st.write("""
+    # Data preview:
+    """)
+    st.table(data.iloc[0:10])        
+    ### The following prints the output and saves it to csv file
+    #if st.button('Export CSV'):
 
-#output.to_csv("custom search output.csv")
-st.download_button('Download file', output)
+    #output.to_csv("custom search output.csv")
+    st.download_button('Download file', output)
 
 
 

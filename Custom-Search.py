@@ -22,17 +22,24 @@ Screaming Frog's custom search function, but you can add all of your searches vi
 """)
 
 #url_file = "urls_to_search.csv"
-url_file = st.file_uploader("Choose a URL file")
-st.write("""
-Example URL file here.
-""")
+url_file = st.file_uploader("#1. Choose your URL CSV file:")
+see_example_url_file = st.checkbox(
+    "See example URL file", False, help="Use example file to see what format your input file has to be"
+)
+if see_example_url_file:
+    uploaded_url_file = "urls_to_search"
+    st.dataframe(uploaded_url_file.head())
 
 #word_file = "words_to_search.csv"
-word_file = st.file_uploader("Choose a Word file")
-st.write("""
-Example Word file here.
-""")
+word_file = st.file_uploader("#2. Choose your Words CSV file:")
+see_example_words_file = st.checkbox(
+    "See example Words file", False, help="Use example file to see what format your input file has to be"
+)
+if see_example_words_file:
+    uploaded_words_file = "urls_to_search"
+    st.dataframe(uploaded_words_file.head())
 
+content_area = st.text_input('Specify regex to find div classes within your content areas:')
 
 if st.button('Start Search'):
     urls = pd.read_csv(url_file, header=0)
@@ -87,7 +94,7 @@ if st.button('Start Search'):
     st.write("""
     # Data preview:
     """)
-    st.table(data.iloc[0:10])        
+    st.table(output.iloc[0:10])        
     ### The following prints the output and saves it to csv file
     #if st.button('Export CSV'):
 

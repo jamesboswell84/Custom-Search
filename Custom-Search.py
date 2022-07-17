@@ -26,12 +26,7 @@ st.write("""
 """)
 #url_file = "urls_to_search.csv"
 url_file = st.file_uploader("Choose your URL CSV file:")
-st.write("""
-URL preview:
-""")
 urls = pd.read_csv(url_file, header=0)
-st.table(urls.iloc[0:10])
-st.error('Select a URL file!')
 see_example_url_file = st.checkbox(
     "See example URL file", False, help="Use example file to see what format your input file has to be"
 )
@@ -39,6 +34,10 @@ if see_example_url_file:
     uploaded_url_file = "urls_to_search.csv"
     uploaded_url_file = pd.read_csv(uploaded_url_file, header=0)
     st.dataframe(uploaded_url_file.head())
+st.write("""
+URL preview:
+""")
+st.dataframe(urls.head())
 
 st.write("""
 # 2.

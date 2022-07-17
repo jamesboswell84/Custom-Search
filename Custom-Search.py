@@ -39,7 +39,7 @@ if see_example_words_file:
     uploaded_words_file = "urls_to_search"
     st.dataframe(uploaded_words_file.head())
 
-content_area = st.text_input('Specify regex to find div classes within your content areas:')
+content_area = st.text_input('#3. Specify regex to find div classes within your content areas:')
 
 if st.button('Start Search'):
     urls = pd.read_csv(url_file, header=0)

@@ -66,7 +66,7 @@ if st.button('🐸 Start Search'):
 
     ### This is the variable for div class to search
     #content_area = input("Enter regex rule for your content area:")
-    #content_area = st.text_input('Specify regex to find div classes within your content areas:')
+    #content_area = st.text_input('Specify regex to find div classes within your content areas (then press enter):')
     
     ### The following loop opens each url 1 by 1 and scrapes the text in the specified div classes to text_column_data
     with st.spinner("Loading URLs..."):
@@ -107,12 +107,12 @@ if st.button('🐸 Start Search'):
         st.table(output.iloc[0:10])        
         ### The following prints the output and saves it to csv file
         #if st.button('Export CSV'):
-
-        csv = convert_df(output)
-        #output.to_csv("custom search output.csv")
         def convert_df(output):
         # IMPORTANT: Cache the conversion to prevent computation on every rerun
             return output.to_csv().encode('utf-8')
+        csv = convert_df(output)
+        #output.to_csv("custom search output.csv")
+
         st.download_button('Download file', csv, file_name="custom search output.csv",mime='text/csv')
 
 

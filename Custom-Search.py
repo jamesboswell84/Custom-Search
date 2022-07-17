@@ -29,7 +29,8 @@ url_file = st.file_uploader("Choose your URL CSV file:")
 st.write("""
 URL preview:
 """)
-st.table(url_file.iloc[0:10])  
+urls = pd.read_csv(url_file, header=0)
+st.table(urls.iloc[0:10])
 see_example_url_file = st.checkbox(
     "See example URL file", False, help="Use example file to see what format your input file has to be"
 )
@@ -46,7 +47,8 @@ word_file = st.file_uploader("Choose your Words CSV file:")
 st.write("""
 Words preview:
 """)
-st.table(word_file.iloc[0:10]) 
+words = pd.read_csv(word_file, header=0)
+st.table(words.iloc[0:10]) 
 see_example_words_file = st.checkbox(
     "See example Words file", False, help="Use example file to see what format your input file has to be"
 )

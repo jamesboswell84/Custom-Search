@@ -52,7 +52,7 @@ st.markdown("[See sample Words file](https://github.com/jamesboswell84/Custom-Se
 st.write("""
 # 3.
 """)
-content_area = st.text_input('Specify the unique div class of your content area:')
+content_area = st.text_input('Specify the unique div class of your content area (then press enter):')
 
 if st.button('🐸 Start Search'):
     urls = url_df
@@ -64,10 +64,6 @@ if st.button('🐸 Start Search'):
     url_column_data = []
     text_column_data = []
 
-    ### This is the variable for div class to search
-    #content_area = input("Enter regex rule for your content area:")
-    #content_area = st.text_input('Specify regex to find div classes within your content areas (then press enter):')
-    
     ### The following loop opens each url 1 by 1 and scrapes the text in the specified div classes to text_column_data
     with st.spinner("Loading URLs..."):
         for url in urls:

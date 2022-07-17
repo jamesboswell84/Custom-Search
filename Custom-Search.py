@@ -108,8 +108,9 @@ if st.button('Start Search'):
         def convert_df(output):
         # IMPORTANT: Cache the conversion to prevent computation on every rerun
             return output.to_csv().encode('utf-8')
+        csv = convert_df(output)
         #output.to_csv("custom search output.csv")
-        st.download_button('Download file', output, file_name="custom search output.csv",mime='text/csv')
+        st.download_button('Download file', csv, file_name="custom search output.csv",mime='text/csv')
 
 
 

@@ -16,6 +16,10 @@ output = pd.DataFrame()
 
 ### The following section loads the urls and words into python as lists
 
+def convert_df():
+# IMPORTANT: Cache the conversion to prevent computation on every rerun
+    return output.to_csv().encode('utf-8')
+
 st.write("""
 # Custom Search
 Screaming Frog's custom search function, but you can add all of your searches via an input file instead of adding them manually and individually.
@@ -33,7 +37,8 @@ if uploaded_url_file:
 
 sample_url_file = "urls_to_search.csv"
 sample_url_data = pd.read_csv(sample_url_file, header=0)
-st.download_button('Download sample URL file', sample_url_data)
+sample_url_data = convert_df(sample_url_data)
+st.download_button('Download sample URL file', sample_url_data, file_name="custom search output.csv",mime='text/csv')
     
 st.write("""
 # 2.
@@ -47,7 +52,8 @@ if uploaded_word_file:
 
 sample_words_file = "words_to_search.csv"
 sample_words_data = pd.read_csv(sample_words_file, header=0)
-st.download_button('Download sample Words file', sample_words_data)
+sample_words_data = convert_df(sample_words_data)
+st.download_button('Download sample Words file', sample_words_data, file_name="custom search output.csv",mime='text/csv')
     
     
 st.write("""
@@ -108,9 +114,7 @@ if st.button('Start Search'):
         st.table(output.iloc[0:10])        
         ### The following prints the output and saves it to csv file
         #if st.button('Export CSV'):
-        def convert_df(output):
-        # IMPORTANT: Cache the conversion to prevent computation on every rerun
-            return output.to_csv().encode('utf-8')
+
         csv = convert_df(output)
         #output.to_csv("custom search output.csv")
         st.download_button('Download file', csv, file_name="custom search output.csv",mime='text/csv')

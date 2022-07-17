@@ -26,6 +26,10 @@ st.write("""
 """)
 #url_file = "urls_to_search.csv"
 url_file = st.file_uploader("Choose your URL CSV file:")
+st.write("""
+URL preview:
+""")
+st.table(url_file.iloc[0:10])  
 see_example_url_file = st.checkbox(
     "See example URL file", False, help="Use example file to see what format your input file has to be"
 )
@@ -39,6 +43,10 @@ st.write("""
 """)
 #word_file = "words_to_search.csv"
 word_file = st.file_uploader("Choose your Words CSV file:")
+st.write("""
+Words preview:
+""")
+st.table(word_file.iloc[0:10]) 
 see_example_words_file = st.checkbox(
     "See example Words file", False, help="Use example file to see what format your input file has to be"
 )

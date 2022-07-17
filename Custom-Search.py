@@ -68,6 +68,8 @@ if st.button('Start Search'):
     
     ### The following loop opens each url 1 by 1 and saves the text in "div class="layout__region layout__region--content container" to text_column_data
     for url in urls:
+        print("Loading URLs...")
+        st.progress(url)
         try:   
             fd = urlopen(url)
             f = io.BytesIO(fd.read()) 
@@ -84,9 +86,9 @@ if st.button('Start Search'):
     output["url"] = url_column_data
 
     ### The following loop opens each word 1 by 1
-    counter = 0
-    tot = len(words)
     for word in words:
+        print("Searching for words...")
+        st.progress(word)
         search_column_data = []
         try:
             ### The following loop within a loop opens the text_column_data list 1 by 1 and counts each word 1 by 1
@@ -96,9 +98,6 @@ if st.button('Start Search'):
         except:
             pass
        ### The following adds the count data for each word to our output dataframe
-        counter = counter + 1
-        progress_variable_1_to_100 = counter/tot
-        st.progress(progress_variable_1_to_100)
         output[word] = search_column_data
 
 #print(output)

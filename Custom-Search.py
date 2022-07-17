@@ -19,7 +19,7 @@ output = pd.DataFrame()
 
 
 st.write("""
-# Custom Search
+# 🐸 Custom Search
 Screaming Frog's custom search function, but you can add all of your searches via an input file instead of adding them manually and individually.
 """)
 
@@ -54,7 +54,7 @@ st.write("""
 """)
 content_area = st.text_input('Specify the unique div class of your content area:')
 
-if st.button('Start Search'):
+if st.button('🐸 Start Search'):
     urls = pd.read_csv(url_file, header=0)
     urls = urls['URL'].to_list()
     words = pd.read_csv(word_file, header=0)

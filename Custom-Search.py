@@ -54,6 +54,10 @@ st.write("""
 """)
 content_area = st.text_input('(OPTIONAL) Specify the unique div class of your content area (then press enter):')
 
+st.write("""
+# 4.
+Press button to start crawl ()
+""")
 if st.button('🐸 Start Search'):
     urls = url_df
     urls = urls['URL'].to_list()
@@ -66,7 +70,11 @@ if st.button('🐸 Start Search'):
 
     ### The following loop opens each url 1 by 1 and scrapes the text in the specified div classes to text_column_data
     with st.spinner("Loading URLs..."):
+        progbar = st.progress(0)
+        counter = 0
         for url in urls:
+            progbar.progress(counter/len(urls))
+            counter = counter + 1
             try:   
                 fd = urlopen(url)
                 f = io.BytesIO(fd.read()) 

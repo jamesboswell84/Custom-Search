@@ -26,7 +26,7 @@ Screaming Frog's custom search function, but you can add all of your searches vi
 st.write("""
 # 1.
 """)
-uploaded_url_file = st.file_uploader("Choose your URL CSV file:", type=csv)
+uploaded_url_file = st.file_uploader("Choose your URL CSV file:", type=['csv'])
 
 if uploaded_url_file:
     url_df = pd.read_csv(uploaded_url_file, header=0)
@@ -39,7 +39,7 @@ st.markdown("[See sample URLs file](https://github.com/jamesboswell84/Custom-Sea
 st.write("""
 # 2.
 """)
-uploaded_word_file = st.file_uploader("Choose your Words CSV file:")
+uploaded_word_file = st.file_uploader("Choose your Words CSV file:", type=['csv'])
 
 if uploaded_word_file:
     words_df = pd.read_csv(uploaded_word_file, header=0)

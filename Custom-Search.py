@@ -56,7 +56,7 @@ content_area = st.text_input('(OPTIONAL) Specify the unique div class of your co
 
 st.write("""
 # 4.
-Press button to start crawl ()
+Press button to start crawl (~5-10 URLs processed per second)
 """)
 if st.button('🐸 Start Search'):
     urls = url_df

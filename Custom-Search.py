@@ -26,7 +26,7 @@ Screaming Frog's custom search function, but you can add all of your searches vi
 st.write("""
 # 1.
 """)
-uploaded_url_file = st.file_uploader("Choose your URL CSV file:")
+uploaded_url_file = st.file_uploader("Choose your URL CSV file:", type=csv)
 
 if uploaded_url_file:
     url_df = pd.read_csv(uploaded_url_file, header=0)

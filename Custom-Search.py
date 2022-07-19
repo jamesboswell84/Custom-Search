@@ -93,6 +93,7 @@ if st.button('🐸 Start Search'):
     ### The following loop opens each word 1 by 1
     with st.spinner("Searching for words..."):
         for word in words:
+            word = word.lower()
             search_column_data = []
             try:
                 ### The following loop within a loop opens the text_column_data list 1 by 1 and counts each word 1 by 1
